@@ -58,6 +58,28 @@ body * {
 }
 
 /*
+  Pen Panel
+*/
+
+.line-types input[type="radio"] {
+  visibility: hidden;
+  position: absolute;
+  bottom: 10px;
+}
+
+.line-types input[type="radio"]:checked + label {
+  background: #4ba9c8;
+  color: #ffffff;
+}
+
+.line-types label {
+  background: #d6d7da;
+  padding: 4px;
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+/*
   Utility Classes
 */
 

@@ -28,31 +28,34 @@ export default function Pen({penOptions, setPenOptions}) {
 			<section>
 				<h4>Line Type:</h4>
 				<div className="line-types">
-					<label>
-						<input
-							type="radio"
-							value="solid"
-							onChange={e => setPenOptions({...penOptions, lineType: "solid"})}
-							checked={penOptions.lineType === "solid"}
-						/>
+					<input
+						id="option1"
+						type="radio"
+						value="solid"
+						onChange={e => setPenOptions({...penOptions, lineType: "solid"})}
+						checked={penOptions.lineType === "solid"}
+					/>
+					<label for="option1">
 						<span className="line-types__option">Solid</span>
 					</label>
-					<label>
-						<input
-							type="radio"
-							value="dash"
-							onChange={e => setPenOptions({...penOptions, lineType: "dash"})}
-							checked={penOptions.lineType === "dash"}
-						/>
+					<input
+						id="option2"
+						type="radio"
+						value="dash"
+						onChange={e => setPenOptions({...penOptions, lineType: "dash"})}
+						checked={penOptions.lineType === "dash"}
+					/>
+					<label for="option2">
 						<span className="line-types__option">Dashed</span>
 					</label>
-					<label>
-						<input
-							type="radio"
-							value="dot"
-							onChange={e => setPenOptions({...penOptions, lineType: "dot"})}
-							checked={penOptions.lineType === "dot"}
-						/>
+					<input
+						id="option3"
+						type="radio"
+						value="dot"
+						onChange={e => setPenOptions({...penOptions, lineType: "dot"})}
+						checked={penOptions.lineType === "dot"}
+					/>
+					<label for="option3">
 						<span className="line-types__option">Dotted</span>
 					</label>
 				</div>

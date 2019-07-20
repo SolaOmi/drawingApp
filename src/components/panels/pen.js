@@ -7,7 +7,7 @@ export default function Pen({penOptions, setPenOptions}) {
 			<h1>Pen</h1>
 			<section>
 				<label>
-					Stroke Color:
+					<h4 className="inline">Stroke Color:</h4>
 					<input
 						type="color"
 						value={penOptions.color}
@@ -15,10 +15,9 @@ export default function Pen({penOptions, setPenOptions}) {
 					/>
 				</label>
 			</section>
-			<br/>
 			<section>
 				<label>
-					Stroke Width:
+					<h4>Stroke Width:</h4>
 					<input
 						value={penOptions.strokeWidth}
 						onChange={e => setPenOptions({...penOptions, strokeWidth: e.target.value})}
@@ -27,7 +26,7 @@ export default function Pen({penOptions, setPenOptions}) {
 				</label>
 			</section>
 			<section>
-				<h2>Line Type:</h2>
+				<h4>Line Type:</h4>
 				<div className="line-types">
 					<label>
 						<input

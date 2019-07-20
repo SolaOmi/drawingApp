@@ -10,6 +10,7 @@ export default function Eraser({eraserOptions, setEraserOptions}) {
 					Eraser Width: {eraserOptions.strokeWidth}
 					<input
 						value={eraserOptions.strokeWidth}
+						onChange={e => setEraserOptions({...eraserOptions, strokeWidth: e.target.value})}
 						name="stroke-width"
 						max="100"
 						min="1"

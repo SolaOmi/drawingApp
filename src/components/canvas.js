@@ -33,6 +33,7 @@ export default function Canvas({activeTool, penOptions}) {
 		if (activeTool === "pen") {
 			setIsDrawing(true);
 			ctx.beginPath();
+			ctx.setLineDash(getLineDash(penOptions.lineType));
 			ctx.moveTo(getX(event), getY(event));
 			event.preventDefault();
 		}
@@ -56,6 +57,17 @@ export default function Canvas({activeTool, penOptions}) {
 		}
 		event.preventDefault();
 	};
+	
+	const getLineDash = (lineType) => {
+		let strokeWidth = penOptions.strokeWidth;
+		if (lineType === "solid") {
+			return [];
+		} else if (lineType === "dash") {
+			return [6 * strokeWidth, 1 * strokeWidth];
+		} else {
+			return [1.5 * strokeWidth, 1.5 * strokeWidth];
+		}
+	}
 
 	return (
 		<canvas

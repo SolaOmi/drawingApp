@@ -16,6 +16,7 @@ export default function App() {
 	const [penOptions, setPenOptions] = useState({
 		strokeWidth: 10,
 		lineType: "solid",
+		color: "#000000"
 	});
 
 	return(

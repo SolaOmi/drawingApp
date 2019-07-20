@@ -32,6 +32,7 @@ export default function Canvas({activeTool, penOptions}) {
 	const start = (event) => {
 		if (activeTool === "pen") {
 			setIsDrawing(true);
+			ctx.strokeStyle = penOptions.color;
 			ctx.beginPath();
 			ctx.setLineDash(getLineDash(penOptions.lineType));
 			ctx.moveTo(getX(event), getY(event));

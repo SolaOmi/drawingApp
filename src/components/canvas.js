@@ -10,6 +10,18 @@ export default function Canvas({activeTool, penOptions}) {
 		const canvas = canvasRef.current;
 		setCtx(canvas.getContext("2d"));
 	}, []);
+	
+	// Clear canvas
+	useEffect(() => {
+		const canvas = canvasRef.current;
+		const clearBtn = document.getElementById('clearBtn');
+		
+		if (clearBtn) {
+			clearBtn.addEventListener('click', () => {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+			});
+		}
+	})
 
 	const getX = (event) => {
 		if (event.pageX === undefined) {

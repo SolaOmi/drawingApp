@@ -35,7 +35,7 @@ export default function Pen({penOptions, setPenOptions}) {
 						onChange={e => setPenOptions({...penOptions, lineType: "solid"})}
 						checked={penOptions.lineType === "solid"}
 					/>
-					<label for="option1">
+					<label htmlFor="option1">
 						<span className="line-types__option">Solid</span>
 					</label>
 					<input
@@ -45,7 +45,7 @@ export default function Pen({penOptions, setPenOptions}) {
 						onChange={e => setPenOptions({...penOptions, lineType: "dash"})}
 						checked={penOptions.lineType === "dash"}
 					/>
-					<label for="option2">
+					<label htmlFor="option2">
 						<span className="line-types__option">Dashed</span>
 					</label>
 					<input
@@ -55,7 +55,7 @@ export default function Pen({penOptions, setPenOptions}) {
 						onChange={e => setPenOptions({...penOptions, lineType: "dot"})}
 						checked={penOptions.lineType === "dot"}
 					/>
-					<label for="option3">
+					<label htmlFor="option3">
 						<span className="line-types__option">Dotted</span>
 					</label>
 				</div>

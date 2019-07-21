@@ -91,7 +91,7 @@ export default function Canvas({activeTool, penOptions}) {
 
 	return (
 		<canvas
-			width={window.innerWidth - 262}
+			width={window.innerWidth - 270}
 			height={window.innerHeight}
 			className="canvas"
 			ref={canvasRef}

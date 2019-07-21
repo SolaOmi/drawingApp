@@ -7,7 +7,7 @@ export default function Eraser({eraserOptions, setEraserOptions}) {
 			<h1>Eraser</h1>
 			<section>
 				<label>
-					Eraser Width: {eraserOptions.strokeWidth}
+					<h4>Stroke Width: {eraserOptions.strokeWidth}</h4>
 					<input
 						value={eraserOptions.strokeWidth}
 						onChange={e => setEraserOptions({...eraserOptions, strokeWidth: e.target.value})}
@@ -17,7 +17,7 @@ export default function Eraser({eraserOptions, setEraserOptions}) {
 					/>
 				</label>
 			</section>
-			<button id="clearBtn">Clear Canvas</button>
+			<button id="clear-btn">Clear Canvas</button>
 		</div>
 	);
 }

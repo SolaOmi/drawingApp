@@ -14,7 +14,7 @@ export default function Canvas({activeTool, penOptions}) {
 	// Clear canvas
 	useEffect(() => {
 		const canvas = canvasRef.current;
-		const clearBtn = document.getElementById('clearBtn');
+		const clearBtn = document.getElementById('clear-btn');
 		
 		if (clearBtn) {
 			clearBtn.addEventListener('click', () => {

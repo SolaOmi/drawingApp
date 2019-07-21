@@ -37,6 +37,13 @@ export default function Canvas({activeTool, penOptions}) {
 			ctx.setLineDash(getLineDash(penOptions.lineType));
 			ctx.moveTo(getX(event), getY(event));
 			event.preventDefault();
+		} else if (activeTool === "eraser") {
+			setIsDrawing(true);
+			ctx.strokeStyle = "#ffffff";
+			ctx.beginPath();
+			ctx.setLineDash([]);  // eraser stroke line should always be solid
+			ctx.moveTo(getX(event), getY(event));
+			event.preventDefault();
 		}
 	};
 

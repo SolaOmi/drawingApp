@@ -19,7 +19,9 @@ export default function App() {
 		color: "#000000"
 	});
 	const [eraserOptions, setEraserOptions] = useState({
-		strokeWidth: 10
+		strokeWidth: 10,
+		lineType: "solid",
+		color: "#ffffff"
 	});
 	
 	let options, setOptions;

@@ -42,18 +42,11 @@ export default function Canvas({activeTool, options}) {
 	};
 
 	const start = (event) => {
-		if (activeTool === "pen") {
+		if (activeTool === "pen" || activeTool === "eraser") {
 			setIsDrawing(true);
 			ctx.strokeStyle = options.color;
 			ctx.beginPath();
 			ctx.setLineDash(getLineDash(options.lineType));
-			ctx.moveTo(getX(event), getY(event));
-			event.preventDefault();
-		} else if (activeTool === "eraser") {
-			setIsDrawing(true);
-			ctx.strokeStyle = "#ffffff";
-			ctx.beginPath();
-			ctx.setLineDash([]);  // eraser stroke line should always be solid
 			ctx.moveTo(getX(event), getY(event));
 			event.preventDefault();
 		}

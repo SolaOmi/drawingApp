@@ -7,33 +7,33 @@ import Download from "./panels/download";
 
 export default function ToolPanel({
 	activeTool,
-	penOptions,
-	setPenOptions
+	options,
+	setOptions
 }) {
 	return (
 		<div className="tool-panel">
 			{activeTool === "pen" &&
 				<Pen
-					penOptions={penOptions}
-					setPenOptions={setPenOptions}
+					penOptions={options}
+					setPenOptions={setOptions}
 				/>
 			}
 			{activeTool === "eraser" &&
 				<Eraser
-					eraserOptions={penOptions}
-					setEraserOptions={setPenOptions}
+					eraserOptions={options}
+					setEraserOptions={setOptions}
 				/>
 			}
 			{activeTool === "stamp" &&
 				<Stamp
-					stampOptions={penOptions}
-					setStampOptions={setPenOptions}
+					stampOptions={options}
+					setStampOptions={setOptions}
 				/>
 			}
 			{activeTool === "download" &&
 				<Download
-					downloadOptions={penOptions}
-					setDownloadOptions={setPenOptions}
+					downloadOptions={options}
+					setDownloadOptions={setOptions}
 				/>
 			}
 		</div>

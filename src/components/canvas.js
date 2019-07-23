@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
-export default function Canvas({activeTool, penOptions}) {
+export default function Canvas({activeTool, options}) {
 	const canvasRef = useRef(null);
 
 	const [isDrawing, setIsDrawing] = useState(false);
@@ -44,9 +44,9 @@ export default function Canvas({activeTool, penOptions}) {
 	const start = (event) => {
 		if (activeTool === "pen") {
 			setIsDrawing(true);
-			ctx.strokeStyle = penOptions.color;
+			ctx.strokeStyle = options.color;
 			ctx.beginPath();
-			ctx.setLineDash(getLineDash(penOptions.lineType));
+			ctx.setLineDash(getLineDash(options.lineType));
 			ctx.moveTo(getX(event), getY(event));
 			event.preventDefault();
 		} else if (activeTool === "eraser") {
@@ -62,7 +62,7 @@ export default function Canvas({activeTool, penOptions}) {
 	const draw = (event) => {
 		if (isDrawing) {
 			ctx.lineTo(getX(event), getY(event));
-			ctx.lineWidth = penOptions.strokeWidth;
+			ctx.lineWidth = options.strokeWidth;
 			ctx.lineJoin = "round";
 			ctx.stroke();
 		}
@@ -79,7 +79,7 @@ export default function Canvas({activeTool, penOptions}) {
 	};
 	
 	const getLineDash = (lineType) => {
-		let strokeWidth = penOptions.strokeWidth;
+		let strokeWidth = options.strokeWidth;
 		if (lineType === "solid") {
 			return [];
 		} else if (lineType === "dash") {

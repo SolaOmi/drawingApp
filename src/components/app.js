@@ -18,7 +18,17 @@ export default function App() {
 		lineType: "solid",
 		color: "#000000"
 	});
-
+	const [eraserOptions, setEraserOptions] = useState({
+		strokeWidth: 10
+	});
+	
+	let options, setOptions;
+	if (activeTool === "pen") {
+		[options, setOptions] = [penOptions, setPenOptions];
+	} else if (activeTool === "eraser") {
+		[options, setOptions] = [eraserOptions, setEraserOptions];
+	}
+	
 	return(
 		<React.Fragment>
 			<NavBar
@@ -27,12 +37,12 @@ export default function App() {
 			/>
 			<ToolPanel
 				activeTool={activeTool}
-				penOptions={penOptions}
-				setPenOptions={setPenOptions}
+				options={options}
+				setOptions={setOptions}
 			/>
 			<Canvas
 				activeTool={activeTool}
-				penOptions={penOptions}
+				options={options}
 			/>
 		</React.Fragment>
 	);

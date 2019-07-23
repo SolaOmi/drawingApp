@@ -23,12 +23,17 @@ export default function App() {
 		lineType: "solid",
 		color: "#ffffff"
 	});
+	const [stampOptions, setStampOptions] = useState({
+		maxWidth: 200
+	})
 	
 	let options, setOptions;
 	if (activeTool === "pen") {
 		[options, setOptions] = [penOptions, setPenOptions];
 	} else if (activeTool === "eraser") {
 		[options, setOptions] = [eraserOptions, setEraserOptions];
+	} else if (activeTool === "stamp") {
+		[options, setOptions] = [stampOptions, setStampOptions];
 	}
 	
 	return(

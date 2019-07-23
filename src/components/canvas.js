@@ -49,6 +49,10 @@ export default function Canvas({activeTool, options}) {
 			ctx.setLineDash(getLineDash(options.lineType));
 			ctx.moveTo(getX(event), getY(event));
 			event.preventDefault();
+		} else if (activeTool === "stamp") {
+			const img = document.getElementById('uploaded-image');
+			let scale = options.maxWidth;
+			ctx.drawImage(img, getX(event), getY(event), scale, scale);
 		}
 	};
 

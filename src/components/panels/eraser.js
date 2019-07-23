@@ -9,6 +9,7 @@ export default function Eraser({eraserOptions, setEraserOptions}) {
 				<label>
 					<h4>Stroke Width: {eraserOptions.strokeWidth}</h4>
 					<input
+						type="range"
 						value={eraserOptions.strokeWidth}
 						onChange={e => setEraserOptions({...eraserOptions, strokeWidth: e.target.value})}
 						name="stroke-width"

@@ -19,6 +19,7 @@ export default function Pen({penOptions, setPenOptions}) {
 				<label>
 					<h4>Stroke Width: {penOptions.strokeWidth}</h4>
 					<input
+						type="range"
 						value={penOptions.strokeWidth}
 						onChange={e => setPenOptions({...penOptions, strokeWidth: e.target.value})}
 						name="stroke-width"

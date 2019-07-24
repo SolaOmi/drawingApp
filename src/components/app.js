@@ -25,7 +25,8 @@ export default function App() {
 	});
 	const [stampOptions, setStampOptions] = useState({
 		maxWidth: 200
-	})
+	});
+	const [downloadOptions, setDownloadOptions] = useState({});
 	
 	let options, setOptions;
 	if (activeTool === "pen") {
@@ -34,6 +35,8 @@ export default function App() {
 		[options, setOptions] = [eraserOptions, setEraserOptions];
 	} else if (activeTool === "stamp") {
 		[options, setOptions] = [stampOptions, setStampOptions];
+	} else {
+		[options, setOptions] = [downloadOptions, setDownloadOptions];
 	}
 	
 	return(

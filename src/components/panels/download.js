@@ -2,6 +2,9 @@ import React from 'react';
 
 export default function Download({downloadOptions, setDownloadOptions}) {
   return (
-    <h1>Download</h1>
+    <div>
+      <h1>Download</h1>
+      <a id="download-btn" download="drawing.png">Download Image</a>
+    </div>
   );
 }

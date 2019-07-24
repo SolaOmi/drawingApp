@@ -22,6 +22,19 @@ export default function Canvas({activeTool, options}) {
 			});
 		}
 	})
+	
+	// Download drawing
+	useEffect(() => {
+		const canvas = canvasRef.current;
+		const downloadBtn = document.getElementById('download-btn');
+		
+		if (downloadBtn) {
+			downloadBtn.addEventListener('click', () => {
+				let dataURL = canvas.toDataURL('image/png');
+				downloadBtn.href = dataURL;
+			});
+		}
+	})
 
 	const getX = (event) => {
 		if (event.pageX === undefined) {

@@ -47,8 +47,8 @@ export default function Stamp({stampOptions, setStampOptions}) {
         id="uploaded-image"
         src=""
         alt=""
-        width="200"
-        height="200"
+        width="130"
+        height="130"
       />
     </div>
   );

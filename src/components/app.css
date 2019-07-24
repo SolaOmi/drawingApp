@@ -94,12 +94,7 @@ h4 {
 
 #clear-btn {
   margin-top: 32px;
-  background: #b5226e;
   border: none;
-  border-radius: 5px;
-  padding: 12px 8px;
-  color: #ffffff;
-  font-weight: 600;
 }
 
 /*
@@ -111,9 +106,27 @@ h4 {
 }
 
 /*
+	Download Panel
+*/
+
+#download-btn {
+	text-decoration: none;
+	cursor: default;
+}
+
+/*
   Utility Classes
 */
 
 .inline {
   display: inline;
+}
+
+.btn {
+	background: #b5226e;
+	padding: 12px 8px;
+	border-radius: 5px;
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 14px;	
 }

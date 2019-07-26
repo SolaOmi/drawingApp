@@ -7,25 +7,32 @@ import ToolPanel from "./tool-panel";
 import Canvas from "./canvas";
 
 export default function App() {
-
-	/*
-		If the syntax below (`useState(...)` etc.) looks unfamiliar to you,
-		check out the docs on "React Hooks" we link to in the Resources section of the README.
-	*/
-	const [activeTool, setActiveTool] = useState("pen");
-	const [penOptions, setPenOptions] = useState({
+	const defaultPenOptions = {
 		strokeWidth: 10,
 		lineType: "solid",
 		color: "#000000"
-	});
-	const [eraserOptions, setEraserOptions] = useState({
+	}
+	const defaultEraserOptions = {
 		strokeWidth: 10,
 		lineType: "solid",
 		color: "#ffffff"
-	});
-	const [stampOptions, setStampOptions] = useState({
-		maxWidth: 200
-	});
+	}
+	const defaultStampOptions = { maxWidth: 200 }
+	
+	// Retrieve app state
+	let cachedActiveTool = localStorage.getItem("activeTool");
+	let cachedOptions = JSON.parse(localStorage.getItem("options"));
+	
+	const [activeTool, setActiveTool] = useState(cachedActiveTool || "pen");
+	const [penOptions, setPenOptions] = useState(
+		(cachedActiveTool === "pen" && cachedOptions) || defaultPenOptions
+	);
+	const [eraserOptions, setEraserOptions] = useState(
+		(cachedActiveTool === "eraser" && cachedOptions) || defaultEraserOptions
+	);
+	const [stampOptions, setStampOptions] = useState(
+		(cachedActiveTool === "stamp" && cachedOptions) || defaultStampOptions
+	);
 	const [downloadOptions, setDownloadOptions] = useState({});
 	
 	let options, setOptions;
@@ -39,6 +46,9 @@ export default function App() {
 		[options, setOptions] = [downloadOptions, setDownloadOptions];
 	}
 	
+	// Store app state.
+	localStorage.setItem("activeTool", activeTool);
+	localStorage.setItem("options", JSON.stringify(options))
 	return(
 		<React.Fragment>
 			<NavBar

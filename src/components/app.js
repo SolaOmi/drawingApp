@@ -16,7 +16,8 @@ export default function App() {
 	const [penOptions, setPenOptions] = useState({
 		strokeWidth: 10,
 		lineType: "solid",
-		color: "#000000"
+		color: "#000000",
+		previousColors: []
 	});
 	const [eraserOptions, setEraserOptions] = useState({
 		strokeWidth: 10,

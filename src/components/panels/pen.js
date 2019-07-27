@@ -1,6 +1,51 @@
-import React from "react";
+import React, { useRef } from "react";
 
 export default function Pen({penOptions, setPenOptions}) {
+	const prevColorRef = useRef();
+	prevColorRef.current = penOptions.color;
+
+	const decToHex = (c) => {
+		let hex = c.toString(16);
+		return hex.length === 1 ? "0" + hex : hex;
+	}
+	const rgbToHex = (r, g, b) => "#" + decToHex(r) + decToHex(g) + decToHex(b)
+
+	const getPreviousColor = (e) => {
+		const colorValues = (e.target.style.backgroundColor).match(/\d+/g);
+		const [r, g, b] = colorValues.map(val => Number(val));
+		document.getElementById('color-picker').value = rgbToHex(r, g, b);
+
+		setPenOptions({...penOptions,
+			color: rgbToHex(r, g, b),
+			previousColors: setPreviousColor()
+		});
+	}
+
+	const setPreviousColor = () => {
+		const colors = penOptions.previousColors;
+		if (!colors.includes(prevColorRef.current)) {
+			if (colors.length === 6) {
+				colors.slice(1);
+			}
+			return colors.concat(prevColorRef.current);
+		}
+		return colors;
+	}
+
+	const colorSwatches = penOptions.previousColors.map((color, index) =>
+		<li
+			key={index}
+			style={{background: color}}
+			onClick={e => getPreviousColor(e)}
+		/>
+	);
+
+	const updateState = (e) => {
+		setPenOptions({...penOptions,
+			color: e.target.value,
+			previousColors: setPreviousColor()
+		});
+	}
 
 	return(
 		<div>
@@ -9,11 +54,15 @@ export default function Pen({penOptions, setPenOptions}) {
 				<label>
 					<h4 className="inline">Stroke Color: </h4>
 					<input
+						id="color-picker"
 						type="color"
 						value={penOptions.color}
-						onChange={e => setPenOptions({...penOptions, color: e.target.value})}
+						onChange={e => updateState(e)}
 					/>
 				</label>
+				<ul id="swatches">
+					{colorSwatches}
+				</ul>
 			</section>
 			<section>
 				<label>

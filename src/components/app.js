@@ -10,13 +10,14 @@ export default function App() {
 	const defaultPenOptions = {
 		strokeWidth: 10,
 		lineType: "solid",
-		color: "#000000"
+		color: "#000000",
+		previousColors: []
 	}
 	const defaultEraserOptions = {
 		strokeWidth: 10,
 		lineType: "solid",
 		color: "#ffffff"
-	}
+	};
 	const defaultStampOptions = { maxWidth: 200 }
 	
 	// Retrieve app state

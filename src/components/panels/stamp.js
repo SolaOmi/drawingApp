@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export default function Stamp({stampOptions, setStampOptions}) {
   const getImage = (e) => {
     if (e.target.files && e.target.files[0]) {
       let reader = new FileReader();
       let file = e.target.files[0];
-      let img = document.getElementById('uploaded-image');
+      let img = document.getElementById("uploaded-image");
       
       reader.onloadend = () => {
         img.src = reader.result;

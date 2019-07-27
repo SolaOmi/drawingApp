@@ -13,7 +13,7 @@ export default function Pen({penOptions, setPenOptions}) {
 	const getPreviousColor = (e) => {
 		const colorValues = (e.target.style.backgroundColor).match(/\d+/g);
 		const [r, g, b] = colorValues.map(val => Number(val));
-		document.getElementById('color-picker').value = rgbToHex(r, g, b);
+		document.getElementById("color-picker").value = rgbToHex(r, g, b);
 
 		setPenOptions({...penOptions,
 			color: rgbToHex(r, g, b),

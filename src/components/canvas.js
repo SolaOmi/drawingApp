@@ -14,10 +14,10 @@ export default function Canvas({activeTool, options}) {
 	// Clear canvas
 	useEffect(() => {
 		const canvas = canvasRef.current;
-		const clearBtn = document.getElementById('clear-btn');
+		const clearBtn = document.getElementById("clear-btn");
 		
 		if (clearBtn) {
-			clearBtn.addEventListener('click', () => {
+			clearBtn.addEventListener("click", () => {
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
 			});
 		}
@@ -26,11 +26,11 @@ export default function Canvas({activeTool, options}) {
 	// Download drawing
 	useEffect(() => {
 		const canvas = canvasRef.current;
-		const downloadBtn = document.getElementById('download-btn');
+		const downloadBtn = document.getElementById("download-btn");
 		
 		if (downloadBtn) {
-			downloadBtn.addEventListener('click', () => {
-				let dataURL = canvas.toDataURL('image/png');
+			downloadBtn.addEventListener("click", () => {
+				let dataURL = canvas.toDataURL("image/png");
 				downloadBtn.href = dataURL;
 			});
 		}
@@ -63,7 +63,7 @@ export default function Canvas({activeTool, options}) {
 			ctx.moveTo(getX(event), getY(event));
 			event.preventDefault();
 		} else if (activeTool === "stamp") {
-			const img = document.getElementById('uploaded-image');
+			const img = document.getElementById("uploaded-image");
 			let scale = options.maxWidth;
 			ctx.drawImage(img, getX(event), getY(event), scale, scale);
 		}

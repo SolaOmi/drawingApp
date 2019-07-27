@@ -11,7 +11,8 @@ export default function Canvas({activeTool, options}) {
 		setCtx(canvas.getContext("2d"));
 	}, []);
 	
-	// Clear canvas
+	// Connect the canvas to the clear button in the eraser panel, and clear the
+	// canvas with a click.
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const clearBtn = document.getElementById("clear-btn");
@@ -23,7 +24,8 @@ export default function Canvas({activeTool, options}) {
 		}
 	})
 	
-	// Download drawing
+	// Connect the canvas to the download button in the download panel, and
+	// download the drawing as png image file.
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const downloadBtn = document.getElementById("download-btn");

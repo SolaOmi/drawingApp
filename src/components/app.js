@@ -20,7 +20,8 @@ export default function App() {
 	};
 	const defaultStampOptions = { maxWidth: 200 }
 	
-	// Retrieve app state
+	// Retrieve app state (active tool & tool settings), will return null if
+	// local storage is empty.
 	let cachedActiveTool = localStorage.getItem("activeTool");
 	let cachedOptions = JSON.parse(localStorage.getItem("options"));
 	
@@ -47,9 +48,10 @@ export default function App() {
 		[options, setOptions] = [downloadOptions, setDownloadOptions];
 	}
 	
-	// Store app state.
+	// Stores app state so that it persists on reload.
 	localStorage.setItem("activeTool", activeTool);
 	localStorage.setItem("options", JSON.stringify(options))
+
 	return(
 		<React.Fragment>
 			<NavBar

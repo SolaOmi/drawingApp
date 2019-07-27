@@ -11,6 +11,7 @@ export default function Pen({penOptions, setPenOptions}) {
 	const rgbToHex = (r, g, b) => "#" + decToHex(r) + decToHex(g) + decToHex(b)
 
 	const getPreviousColor = (e) => {
+		// Regex that returns rgb color values as strings.
 		const colorValues = (e.target.style.backgroundColor).match(/\d+/g);
 		const [r, g, b] = colorValues.map(val => Number(val));
 		document.getElementById("color-picker").value = rgbToHex(r, g, b);

@@ -1,10 +1,14 @@
 {
+  "homepage": "https://solaomi.github.io/drawingApp",
   "name": "apprentice-challenge-2019",
   "version": "0.1.0",
   "description": "Social Tables Apprentice Challenge 2019",
   "scripts": {
     "server": "nodemon --watch server --exec node ./server/index.js",
     "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "cypress:open": "cypress open --env CYPRESS_ENV=development",
     "cypress:run": "$(npm bin)/cypress run --env CYPRESS_ENV=development",
     "test": "if [[ ${NODE_ENV:-development} == development ]] ; then npm run cypress:run ; fi"
@@ -24,6 +28,7 @@
     "cypress": "^3.3.2",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.10.0",
+    "gh-pages": "^2.0.1",
     "nodemon": "^1.18.3",
     "react-scripts": "^1.1.4"
   }
